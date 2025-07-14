@@ -16,7 +16,7 @@ import { useToast } from '@/components/ui/use-toast';
 import SensorChart from '@/components/SensorChart';
 import DataLogger from '@/components/DataLogger';
 import { Link } from 'react-router-dom';
-import { supabase } from '../lib/customSupabaseClient'; // ✅ tambahkan ini
+import { supabase } from '@/lib/CustomSupabaseClient'; // ✅ tambahkan ini
 
 const Monitoring = () => {
   const [sensorData, setSensorData] = useState({
