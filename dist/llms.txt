@@ -1,0 +1,5 @@
+## Pages
+- [HidroponikIoT - Sistem Monitoring Pertanian Hidroponik Berbasis IoT](/home): Sistem monitoring profesional untuk pertanian hidroponik dengan sensor DHT22 dan mikrokontroler ESP32. Pantau suhu dan kelembaban secara real-time.
+- [Kontak - HidroponikIoT](/contact): Hubungi tim HidroponikIoT untuk konsultasi sistem monitoring hidroponik berbasis IoT. Kami siap membantu implementasi teknologi pertanian modern.
+- [Monitoring Real-time - HidroponikIoT](/monitoring): Dashboard monitoring real-time untuk sistem hidroponik IoT. Pantau suhu dan kelembaban dari sensor DHT22 dengan grafik data logger.
+- [Panduan Koneksi - HidroponikIoT](/connectionguide): Panduan langkah demi langkah untuk menghubungkan perangkat ESP32 dan sensor DHT22 Anda ke dashboard monitoring menggunakan Supabase.
