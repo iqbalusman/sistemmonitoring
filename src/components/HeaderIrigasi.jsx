@@ -32,7 +32,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 glass-effect border-b ${isRedTheme ? 'border-red-200/20 bg-red-50/70' : 'border-green-200/20'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 glass-effect border-b ${isRedTheme ? 'border-red-200/20 bg-red-50/70' : 'border-red-200/20'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -40,11 +40,11 @@ const Navbar = () => {
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.5 }}
-              className={`p-2 rounded-lg ${isRedTheme ? 'bg-red-500' : 'bg-green-500'}`}
+              className={`p-2 rounded-lg ${isRedTheme ? 'bg-red-500' : 'bg-red-500'}`}
             >
               <Leaf className="h-6 w-6 text-white" />
             </motion.div>
-            <span className={`text-xl font-bold ${isRedTheme ? 'text-red-700' : 'text-green-700'}`}>
+            <span className={`text-xl font-bold ${isRedTheme ? 'text-red-700' : 'text-red-700'}`}>
               SmartFarming
             </span>
           </Link>
@@ -65,8 +65,8 @@ const Navbar = () => {
                     <button
                       className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
                         dropdownOpen === item.label || item.children.some((c) => isActive(c.path))
-                          ? `${isRedTheme ? 'bg-red-500 text-white' : 'bg-green-500 text-white'} shadow-lg`
-                          : `${isRedTheme ? 'text-red-700 hover:bg-red-100' : 'text-green-700 hover:bg-green-100'}`
+                          ? `${isRedTheme ? 'bg-red-500 text-white' : 'bg-red-500 text-white'} shadow-lg`
+                          : `${isRedTheme ? 'text-red-700 hover:bg-red-100' : 'text-red-700 hover:bg-red-100'}`
                       }`}
                     >
                       <Icon className="h-4 w-4" />
@@ -92,10 +92,10 @@ const Navbar = () => {
                               key={child.path}
                               to={child.path}
                               className={`block px-4 py-2 text-sm hover:${
-                                isRedTheme ? 'bg-red-100' : 'bg-green-100'
+                                isRedTheme ? 'bg-red-100' : 'bg-red-100'
                               } ${
                                 isActive(child.path)
-                                  ? `${isRedTheme ? 'bg-red-200' : 'bg-green-200'} font-bold`
+                                  ? `${isRedTheme ? 'bg-red-200' : 'bg-red-200'} font-bold`
                                   : ''
                               }`}
                             >
@@ -115,8 +115,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
                     isActive(item.path)
-                      ? `${isRedTheme ? 'bg-red-500 text-white' : 'bg-green-500 text-white'} shadow-lg`
-                      : `${isRedTheme ? 'text-red-700 hover:bg-red-100' : 'text-green-700 hover:bg-green-100'}`
+                      ? `${isRedTheme ? 'bg-red-500 text-white' : 'bg-red-500 text-white'} shadow-lg`
+                      : `${isRedTheme ? 'text-red-700 hover:bg-red-100' : 'text-red-700 hover:bg-red-100'}`
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -132,7 +132,7 @@ const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className={isRedTheme ? 'text-red-700' : 'text-green-700'}
+              className={isRedTheme ? 'text-red-700' : 'text-red-700'}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -161,7 +161,7 @@ const Navbar = () => {
                         className={`flex items-center justify-between px-3 py-2 rounded-lg w-full ${
                           isRedTheme
                             ? 'text-red-700 hover:bg-red-100'
-                            : 'text-green-700 hover:bg-green-100'
+                            : 'text-red-700 hover:bg-red-100'
                         }`}
                       >
                         <span className="flex items-center gap-2">
@@ -189,12 +189,12 @@ const Navbar = () => {
                                   ? `${
                                       isRedTheme
                                         ? 'bg-red-500 text-white'
-                                        : 'bg-green-500 text-white'
+                                        : 'bg-red-500 text-white'
                                     }`
                                   : `${
                                       isRedTheme
                                         ? 'text-red-700 hover:bg-red-100'
-                                        : 'text-green-700 hover:bg-green-100'
+                                        : 'text-red-700 hover:bg-red-100'
                                     }`
                               }`}
                             >
@@ -214,8 +214,8 @@ const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
                       isActive(item.path)
-                        ? `${isRedTheme ? 'bg-red-500 text-white' : 'bg-green-500 text-white'} shadow-lg`
-                        : `${isRedTheme ? 'text-red-700 hover:bg-red-100' : 'text-green-700 hover:bg-green-100'}`
+                        ? `${isRedTheme ? 'bg-red-500 text-white' : 'bg-red-500 text-white'} shadow-lg`
+                        : `${isRedTheme ? 'text-red-700 hover:bg-red-100' : 'text-red-700 hover:bg-red-100'}`
                     }`}
                   >
                     <Icon className="h-4 w-4" />

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  Thermometer, 
-  Droplets, 
-  Wifi, 
-  Smartphone, 
-  BarChart3, 
+import {
+  Thermometer,
+  Droplets,
+  Wifi,
+  Smartphone,
+  BarChart3,
   Shield,
   ArrowRight,
   Leaf,
@@ -16,16 +16,15 @@ import {
   Waves
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Navbar from '@/components/Navbar';
+import HeaderIrigasi from '@/components/HeaderIrigasi';
 
-const Home = () => {
+const Berandairigasi = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setShowButton(window.scrollY > 300);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -37,33 +36,33 @@ const Home = () => {
   const features = [
     {
       icon: Thermometer,
-      title: 'Monitoring Suhu',
-      description: 'Pantau suhu lingkungan secara real-time dengan sensor DHT22 yang akurat'
+      title: 'Monitoring Suhu udara dan suhu, kelebaban tanah',
+      description: 'Pantau suhu real-time dengan sensor SHT20 dan SOIL FOUR PARAMETER SENSOR'
     },
     {
-      icon: Droplets,
-      title: 'Kelembaban Udara',
-      description: 'Kontrol kelembaban optimal untuk pertumbuhan tanaman hidroponik'
+      icon: Waves,
+      title: 'Monitoring kecepatan aliran air',
+      description: 'mengubah aliran air menjadi sinyal yang dapat dibaca oleh mikrokontroler, seperti ESP32, untuk menghitung debit air yang mengalir dengan SOIL FOUR PARAMETER SENSOR'
     },
     {
       icon: Wifi,
       title: 'Konektivitas IoT',
-      description: 'Terhubung melalui ESP32 dengan koneksi WiFi yang stabil'
+      description: 'Koneksi stabil dengan ESP32'
     },
     {
       icon: BarChart3,
       title: 'Data Logger',
-      description: 'Simpan dan analisis data historis untuk optimasi pertanian'
+      description: 'Pantau riwayat data pertanian'
     },
     {
       icon: Smartphone,
       title: 'Akses Mobile',
-      description: 'Interface responsif yang dapat diakses dari berbagai perangkat'
+      description: 'UI responsif untuk semua perangkat'
     },
     {
       icon: Shield,
-      title: 'Sistem Reliable',
-      description: 'Monitoring 24/7 dengan sistem yang handal dan terpercaya'
+      title: 'Sistem Handal',
+      description: 'Monitoring berkelanjutan dan akurat'
     }
   ];
 
@@ -77,18 +76,17 @@ const Home = () => {
   return (
     <>
     <header>
-      <Navbar />
+      <HeaderIrigasi />
     </header>
       <Helmet>
-        <title>HidroponikIoT - Sistem Monitoring Pertanian Hidroponik Berbasis IoT</title>
-        <meta name="description" content="Sistem monitoring profesional untuk pertanian hidroponik dengan sensor DHT22 dan mikrokontroler ESP32. Pantau suhu dan kelembaban secara real-time." />
+        <title>IrigasiTetesIoT - Sistem Monitoring Irigasi Tetes Cabai</title>
+        <meta name="description" content="Pantau suhu dan kelembaban irigasi tetes cabai secara real-time dengan sistem berbasis ESP32 dan sensor DHT22." />
       </Helmet>
 
       <div className="pt-16">
-        {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden nature-pattern">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/80 to-blue-50/80"></div>
-          
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 to-red-50/80"></div>
+
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -99,8 +97,8 @@ const Home = () => {
               <div className="flex justify-center mb-8">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="p-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-2xl"
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                  className="p-6 bg-gradient-to-br from-red-400 to-orange-600 rounded-full shadow-2xl"
                 >
                   <Leaf className="h-16 w-16 text-white" />
                 </motion.div>
@@ -108,63 +106,54 @@ const Home = () => {
 
               <h1 className="text-5xl md:text-7xl font-bold text-gray-800 leading-tight">
                 Sistem Monitoring
-                <span className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 roundedblock gradient-bg bg-clip-text text-transparent">
-                  Smart Farming 
+                <span className="block bg-red-600 text-white px-4 py-2 rounded-xl font-semibold">
+                 Irigasi Tetes Cabai
                 </span>
+
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Pantau suhu dan kelembaban tanaman hidroponik Anda secara real-time dengan 
-                teknologi sensor DHT22 dan mikrokontroler YD-ESP32-23
+                Pantau suhu dan kelembaban tanaman cabai secara real-time melalui IoT ESP32 dan sensor DHT22.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/Monitoring/Hidroponik">
-                  <Button size="lg" className="gradient-bg text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group">
-                    Mulai Monitoring
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="outline" size="lg" className="px-8 py-4 text-lg font-semibold border-2 border-green-500 text-green-700 hover:bg-green-50">
-                    Hubungi Kami
-                  </Button>
-                </Link>
-              </div>
+              <Link to="/monitoring/irigasi-tetes">
+                <Button size="lg" className="bg-red-600 text-white hover:bg-red-700 px-8 py-4 text-lg font-semibold">
+                  Masuk Dashboard
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
 
-          {/* Floating Elements */}
           <div className="absolute top-20 left-10 floating">
-            <div className="p-3 bg-green-100 rounded-full shadow-lg">
-              <Thermometer className="h-6 w-6 text-green-600" />
+            <div className="p-3 bg-red-100 rounded-full shadow-lg">
+              <Thermometer className="h-6 w-6 text-red-600" />
             </div>
           </div>
           <div className="absolute top-40 right-20 floating" style={{ animationDelay: '1s' }}>
-            <div className="p-3 bg-blue-100 rounded-full shadow-lg">
-              <Droplets className="h-6 w-6 text-blue-600" />
+            <div className="p-3 bg-orange-100 rounded-full shadow-lg">
+              <Droplets className="h-6 w-6 text-orange-600" />
             </div>
           </div>
           <div className="absolute bottom-40 left-20 floating" style={{ animationDelay: '2s' }}>
-            <div className="p-3 bg-purple-100 rounded-full shadow-lg">
-              <Wifi className="h-6 w-6 text-purple-600" />
+            <div className="p-3 bg-yellow-100 rounded-full shadow-lg">
+              <Wifi className="h-6 w-6 text-yellow-600" />
             </div>
           </div>
         </section>
 
-        {/* Stats Section */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
+              {stats.map((stat, i) => (
                 <motion.div
-                  key={index}
+                  key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-4xl md:text-5xl font-bold gradient-bg bg-clip-text text-white mb-2">
+                  <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
                     {stat.number}
                   </div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -174,7 +163,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Teknologi IoT Section */}
+        {/* Technology Section */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -194,11 +183,11 @@ const Home = () => {
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="p-3 bg-green-100 rounded-lg">
-                      <Waves className="h-6 w-6 text-green-600" />
+                      <Thermometer className="h-6 w-6 text-brown-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">YF-S201</h3>
-                      <p className="text-gray-600">Akurasi tinggi untuk penggunaan air</p>
+                      <h3 className="font-semibold text-gray-800">Sensor SHT20</h3>
+                      <p className="text-gray-600">Akurasi tinggi untuk suhu</p>
                     </div>
                   </div>
 
@@ -207,18 +196,19 @@ const Home = () => {
                       <Thermometer className="h-6 w-6 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">DS18B20</h3>
-                      <p className="text-gray-600">Akurasi tinggi untuk suhu pada air</p>
+                      <h3 className="font-semibold text-gray-800">soil four parameter sensor</h3>
+                      <p className="text-gray-600">Akurasi tinggi untuk suhu tanah</p>
                     </div>
                   </div>
+
                   
                   <div className="flex items-center space-x-4">
                     <div className="p-3 bg-yellow-100 rounded-lg">
                       <Droplet className="h-6 w-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">PH Meter</h3>
-                      <p className="text-gray-600">Sensor pH untuk mengukur tingkat keasaman dan kebasaan larutan</p>
+                      <h3 className="font-semibold text-gray-800">YF-S201</h3>
+                      <p className="text-gray-600">Akurasi tinggi untuk penggunaan air </p>
                     </div>
                   </div>
 
@@ -262,8 +252,8 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+
+        <section className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -275,7 +265,7 @@ const Home = () => {
                 Fitur Unggulan
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Teknologi canggih untuk monitoring pertanian hidroponik yang efisien dan akurat
+                Teknologi monitoring irigasi tetes untuk cabai yang efisien, presisi, dan terhubung ke internet.
               </p>
             </motion.div>
 
@@ -291,7 +281,7 @@ const Home = () => {
                     whileHover={{ y: -5 }}
                     className="glass-effect p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
                   >
-                    <div className="p-4 bg-green-500 rounded-xl w-fit mb-6">
+                    <div className="p-4 bg-red-500 rounded-xl w-fit mb-6">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-800 mb-4">{feature.title}</h3>
@@ -303,8 +293,20 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Ikuti Kami + Foto Kegiatan */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+
+        {showButton && (
+  <button 
+    onClick={scrollToTop}
+    className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-red-600 text-white shadow-lg hover:bg-green-700 transition"
+    aria-label="Kembali ke atas"
+  >
+    ↑
+  </button>
+)}
+
+{/* Location Section */}
+{/* Lokasi Section */}
+ <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               
@@ -367,8 +369,8 @@ const Home = () => {
                   </a>
                 </div>
 
-                {/* Foto Kegiatan */}
-                <section className="mt-10">
+                 /* Foto Kegiatan */
+                 <section className="mt-10">
                   <h2 className="text-2xl font-semibold mb-4">Dokumentasi Kegiatan</h2>
                   <div className="overflow-hidden relative w-full h-48 rounded-xl shadow-lg bg-gray-100">
                     <div
@@ -418,28 +420,15 @@ const Home = () => {
           </div>
         </section>
 
-      </div>
-      
-              {/* Scroll To Top */}
-              {showButton && (
-                <button
-                  onClick={scrollToTop}
-                  className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition"
-                >
-                  ↑
-                </button>
-              )}
-              <footer className="bg-green-100 text-center py-6 mt-10 border-t border-green-300">
-          <p className="text-sm text-green-800">
-            &copy; {new Date().getFullYear()} Sistem Monitoring Irigasi Tetes Cabai. itelVore
-          </p>
-          <p className="text-xs text-green-600 mt-1">
-            Dibuat dengan 💧 dan semangat bertani cerdas.
-          </p>
-        </footer>
+<footer className="py-8 bg-gray- border-t">
+  <div className="text-center text-sm text-gray-600">
+    © 2025 <span className="font-semibold text-blue-700">itelVore</span>. All rights reserved.
+  </div>
+</footer>
 
+      </div>
     </>
   );
 };
 
-export default Home;
+export default Berandairigasi;
